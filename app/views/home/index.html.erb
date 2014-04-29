@@ -1,0 +1,37 @@
+
+<html>
+<head>
+</head>
+<body>
+	<h1>
+Welcome to Our website.
+	</h1>
+	<div>
+		<center>
+		<table border=1>
+			<th>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>email</td>
+				<td>institution</td>
+				<td>password</td>
+			</th>
+			<% @users.each do |t|%>
+				<tr>
+					<td><%= t.firstname%></td>
+					<td><%= t.lastname%></td>
+					<td><%= t.email%></td>
+					<td><%= t.institution%></td>
+					<td><%= t.password%></td>
+				</tr>
+			<%end%>
+		</table>
+		</center>
+	</div>
+	<!--<div class="btn btn-primary" style="margin-left: 45%; margin-top: 25px">-->
+     <div style="margin-left: 45%; margin-top: 25px" >
+		<%= button_to("logout", {:action => 'sign_in'}, :method => :get, :class => 'button',:style =>'color:#fff;background-color:#428bca;padding: 5px; padding-left: 10px; padding-right: 10px')%>
+	</div>
+	      
+</body>
+</html>

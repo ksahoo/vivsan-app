@@ -1,0 +1,78 @@
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>MessUp</title>
+	<!--<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">-->
+	<script type="text/javascript" src="assets/javascripts/respond.js"></script>
+</head>
+<body  style="margin-top: 50px">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="nav navbar-header">
+    <a href="/devise/home/contact" class="navbar-brand">Contact</a>
+  </div>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">English <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">German</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav pull-right">
+
+      <!--<li><a href="/users/sign_up">New member registration</a></li>-->
+      <li>
+      	<%= link_to("New member registration",{:action => 'sign_up'}, :class => 'action sign_up') %>
+      </li>      
+      <!--<li><a href="/users/sign_in">LOGIN</a></li>-->
+      <li>
+      	<%= link_to("LogIn",{:action => 'sign_in'}, :class => 'action sign_in') %>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+		<div class="container">
+	<div class="well">
+		<div class="row">
+			<div class="col-lg-10 simple_form form-horizontal">
+				<!--<form accept-charset="UTF-8" action="/users/sign_in" class="simple_form form-horizontal" id="new_user" method="post" novalidate="novalidate" role="form">-->
+				<%= form_for(:user, :url => {:action => 'validate'}, :class => 'action validate') do %>
+					<!--<div style="margin:0;padding:0;display:inline">
+						<input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="HiKFZQd9ep/NVitsTEBawY1MSN6LAI1N/kKqG2ZfOCw=" />
+					</div>-->
+				<h1>Member Login</h1>
+				<legend>
+					<h4>If you are not a member yet please become a member 
+						<%= link_to("here",{:action => 'sign_up'}, :class => 'action sign_up')%> to Sign In</h4>
+				</legend>
+				
+				    <div class="control-group email optional user_email form-group">
+				    	<label class="email optional control-label col-sm-2 control-label" for="user_email">Email</label>
+				    	<div class="col col-md-6">
+				    		<input autofocus="autofocus" class="string email optional form-control" id="user_email" name="user[email]" placeholder=" Email" size="50" type="email" value="" />
+				    	</div>
+				    </div>
+
+				    <div class="control-group password optional user_password form-group">
+				    	<label class="password optional control-label col-sm-2 control-label" for="user_password">Password</label>
+				    	<div class="col col-md-6">
+				    		<input class="password optional form-control" id="user_password" name="user[password]" placeholder="Password" size="50" type="password" />
+				    	</div>
+				    </div>
+				    <input class="btn btn-primary" name="commit" type="submit" value="sign in" style="margin-left: 17%" />
+				 <%end%>
+				<!--</form>-->
+			</div>
+			<div class="col-lg-2">
+		       <img alt="Logo" class="logo-style" src="/assets/office.jpg" />
+		   </div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
