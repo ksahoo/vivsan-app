@@ -25,7 +25,7 @@ class HomeController < ApplicationController
 	def view
 		@user = UserData.find_by(email: params[:user][:email], password: params[:user][:password])
 		if @user.nil?
-			@user = UserData.new(firstname: params[:user][:firstname],lastname: params[:user][:lastname],email: params[:user][:email],institution: params[:user][:institution], password: params[:user][:password])
+			@user = UserData.new(firstname: params[:user][:first_name],lastname: params[:user][:last_name], email: params[:user][:email], institution: params[:user][:institution], password: params[:user][:password])
 			@user.save()
 			@users = UserData.all
 			render ('index')
