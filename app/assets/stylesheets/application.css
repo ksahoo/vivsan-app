@@ -10,7 +10,8 @@
  *
 
  *= require_self
- *= require bootstrap.min
- *= bootswatch.min
+ 
  *= require_tree .
  */
+ *= require bootstrap.min
+ *= require bootswatch.min

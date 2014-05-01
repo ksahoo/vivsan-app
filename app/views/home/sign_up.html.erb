@@ -3,12 +3,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>MessUp</title>
-	<!--<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">-->
-	<script type="text/javascript" src="assets/javascripts/respond.js"></script>
+	<!--<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="assets/javascripts/respond.js"></script>-->
 </head>
 
 <body style="margin-top: 50px">
-
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	  <div class="nav navbar-header">
 	    <a href="/devise/home/contact" class="navbar-brand">Contact</a>
@@ -43,7 +42,9 @@
 	  <div class="row"> 
 	    <div class="col-lg-10 ">
 	      <!--<form accept-charset="UTF-8" action="/users" class="simple_form form-horizontal" id="new_user" method="post" novalidate="novalidate" role="form">-->
+	      <%= error_messages_for(@user) %>
 	      <%= form_for(:user, :url => {:action => 'view'}, :class => 'action view') do %>
+	      	
 	      	<!--<div style="margin:0;padding:0;display:inline">
 	      		<input name="utf8" type="hidden" value="&#x2713;" />
 	      		<input name="authenticity_token" type="hidden" value="HiKFZQd9ep/NVitsTEBawY1MSN6LAI1N/kKqG2ZfOCw=" />
