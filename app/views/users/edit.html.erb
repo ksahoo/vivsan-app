@@ -24,12 +24,6 @@
       		</li>
     		</ul>
     		<ul class="nav navbar-nav pull-right">
-
-      		<!--<li><a href="/users/sign_up">New member registration</a></li>-->
-      		<!--<li>
-      		<%= link_to("New member registration",{:action => 'sign_up'}, :class => 'action sign_up') %>
-      		</li>-->      
-      		<!--<li><a href="/users/sign_in">LOGIN</a></li>-->
       		<li>
       			<%= link_to("LogOut",{:action => 'sign_in'}, :class => 'action sign_in') %>
       		</li>
@@ -42,7 +36,7 @@
 		  	Edit your data here...
 				</h1>
 				<div>
-					<%= form_for(:user, :url => {:action => 'update'}, :class => ('action update')) do |f|%>
+					<%= form_for(:user, :url => {:action => 'update', :id => @user.id}, :class => ('action update')) do |f|%>
 						<center>
 							<table class="table table-striped table-hover">	
 									<tr>
@@ -62,9 +56,10 @@
 										<td><%= f.text_field(:institution)%></td>
 									</tr>
 							</table>
+								<%= button_to("Save", {:action => 'update'}, :method => :post, :class => 'button',:style =>'color:#fff;background-color:#428bca;padding: 5px; padding-left: 10px; padding-right: 10px')%>
 						</center>
 					<% end %>
-					<% @users = UserData.all %>
+					<!--<% @users = UserData.all %>-->
 					<%= link_to("<<Back",{:action => 'index'}, :class => 'action index')%>
 				</div>
 			</div>

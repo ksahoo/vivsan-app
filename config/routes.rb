@@ -1,6 +1,14 @@
 VivsanApp::Application.routes.draw do
 
-  root :to => "home#sign_in"
+  root :to => "users#new"
+  get "users/index"
+  get "users/new"
+  get "users/create"
+  get "users/edit"
+  get "users/show"
+  get "users/update"
+  get "users/delete"
+  get "users/destroy"
   #post "home/sign_in"
   match ':controller(/:action(/:id))', :via => [:get, :post]
 

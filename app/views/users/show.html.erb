@@ -1,4 +1,5 @@
-<html>
+
+	<html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -24,12 +25,6 @@
       		</li>
     		</ul>
     		<ul class="nav navbar-nav pull-right">
-
-      		<!--<li><a href="/users/sign_up">New member registration</a></li>-->
-      		<!--<li>
-      		<%= link_to("New member registration",{:action => 'sign_up'}, :class => 'action sign_up') %>
-      		</li>-->      
-      		<!--<li><a href="/users/sign_in">LOGIN</a></li>-->
       		<li>
       			<%= link_to("LogOut",{:action => 'sign_in'}, :class => 'action sign_in') %>
       		</li>
@@ -39,33 +34,31 @@
 		<div class="container" style = "margin-top: 50px">
 			<div class="well">
 				<h1>
-		  	Edit your data here...
+		  	The view of the user data...
 				</h1>
 				<div>
-					<%= form_for(:user, :url => {:action => 'update'}, :class => ('action update')) do |f|%>
-						<center>
-							<table class="table table-striped table-hover">	
-									<tr>
-										<th>First Name :</th>
-										<td><%= f.text_field(:firstname)%></td>
-									</tr>
-									<tr>
-										<th>Last Name :</th>
-										<td><%= f.text_field(:lastname)%></td>
-									</tr>
-									<tr>
-										<th>email :</th>
-										<td><%= f.email_field(:email)%></td>
-									</tr>
-									<tr>
-										<th>Institution :</th>
-										<td><%= f.text_field(:institution)%></td>
-									</tr>
-							</table>
-						</center>
-					<% end %>
-					<% @users = UserData.all %>
+					<center>
+						<table class="table table-striped table-hover">	
+								<tr>
+									<th>First Name :</th>
+									<td><%= @user.firstname%></td>
+								</tr>
+								<tr>
+									<th>Last Name :</th>
+									<td><%= @user.lastname%></td>
+								</tr>
+								<tr>
+									<th>email :</th>
+									<td><%= @user.email%></td>
+								</tr>
+								<tr>
+									<th>Institution :</th>
+									<td><%= @user.institution%></td>
+								</tr>
+						</table>
+					</center>
 					<%= link_to("<<Back",{:action => 'index'}, :class => 'action index')%>
+					<%= link_to("Edit",{:action => 'edit', :id => @user.id}, :class => 'action edit')%>
 				</div>
 			</div>
 		</div>      
