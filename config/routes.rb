@@ -9,6 +9,8 @@ VivsanApp::Application.routes.draw do
   get "users/update"
   get "users/delete"
   get "users/destroy"
+
+  # try this out: resources :users
   #post "home/sign_in"
   match ':controller(/:action(/:id))', :via => [:get, :post]
 

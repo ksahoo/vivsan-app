@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def update
     @user = UserData.find(params[:id])
+    pp
     if @user.update_attributes(params.require(:user).permit(:firstname, :lastname, :email, :institution))
       @users = UserData.all
       render ('index')
@@ -58,6 +59,6 @@ class UsersController < ApplicationController
   end
 
   def sign_up
-    
+
   end
 end
