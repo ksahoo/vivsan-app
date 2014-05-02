@@ -14,11 +14,17 @@
 	  	<div class="row"> 
 	    	<div class="col-lg-10 ">	      	
 	      	<%= form_for(:user, :url => {:action => 'create'}) do %>
-	     			<%= error_messages_for(@user) %>
+	     			
 	        	<h1>New Member Registration</h1>
 	        	<legend>
 	        		<h4>To get access to this inventory list of gadgets please fill out the following form. Thank you </h4>
 	        	</legend>
+	        	<% if flash[:error] %>
+							<font color = "red" size = "4">
+								<%= flash[:error].html_safe %>
+							</font>	
+						<% end %>
+						<%= error_messages_for(@user) %>
 	          <div class="form-group">
 	            <label class="string optional control-label control-label col-md-2" for="user_Firstname">Firstname</label>
 	            <div class="col-md-4">

@@ -1,22 +1,37 @@
 class UsersController < ApplicationController
   def index
-    @users = UserData.all
+    @user = UserData.find_by(email: params[:user][:email], password: params[:user][:password])
+    if !@user.nil?
+      @users = UserData.all
+      render('index')
+    else
+      flash[:error] = "Invalid email or password"
+      render('sign_in')
+    end
   end
 
   def new
     redirect_to(:action => 'sign_in')
   end
 
-  def create 
-    @user = UserData.find_by(email: params[:user][:email], password:
-      params[:user][:password])
-    if @user.nil?
-      @user = UserData.new(firstname: params[:user][:first_name],lastname: params[:user][:last_name], email: params[:user][:email], institution: params[:user][:institution], password: params[:user][:password])
-      @user.save()
-      redirect_to(:action => 'new')
+  def create
+    @user_email = params[:user][:email]
+    @user_password= params[:user][:password]  
+    if @user_email = "" && @user_password = ""
+      flash[:error] = "Invalid Credentials."
+      render('sign_up')
     else
+      @user = UserData.find_by(email: params[:user][:email])
+      if !@user.nil?
+        flash[:error] = "email already exists. Try a different one..."
       redirect_to(:action => 'sign_up')
-    end 
+      else
+        @user = UserData.new(firstname: params[:user][:first_name],lastname: params[:user][:last_name], email: params[:user][:email], institution: params[:user][:institution], password: params[:user][:password])
+        @user.save()
+        flash[:error] = "Successfully registered. Now try logging in..."
+        redirect_to(:action => 'new')
+      end
+    end
   end
 
   def edit
@@ -56,6 +71,7 @@ class UsersController < ApplicationController
   end
 
   def sign_in
+
   end
 
   def sign_up

@@ -9,6 +9,7 @@
 <body  style="margin-top: 50px">
 <!-- move to partials-->
 <%= render(:partial => "navigation_sign_in_sign_up")%>
+
 <div class="container">
 	<div class="well">
 		<div class="row">
@@ -19,7 +20,12 @@
 						<h4>If you are not a member yet please become a member 
 						<%= link_to("here",{:action => 'sign_up'}, :class => 'action sign_up')%> to Sign In</h4>
 					</legend>
-				
+					<%= error_messages_for(@user) %>
+					<% if flash[:error] %>
+						<font color = "red" size = "4">
+							<%= flash[:error].html_safe %>
+						</font>	
+					<% end %>
 			    <div class="control-group email optional user_email form-group">
 			    	<label class="email optional control-label col-sm-2 control-label" for="user_email">Email</label>
 			    	<div class="col col-md-6">
